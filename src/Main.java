@@ -78,8 +78,6 @@ public class Main {
       punto_corrente=punto_lavorato;
       distanza_da_soddisfare--;
     }
-
-
     Tools.stampa(labirinto);
   }
 }
