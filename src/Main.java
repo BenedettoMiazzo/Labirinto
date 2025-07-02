@@ -10,11 +10,7 @@ public class Main {
   // 3 rappresenta l arrivo
   public static int[][] labirinto = new int[10][10];
   public static Personaggio personaggio = new Personaggio();
-  public static int dado() {
-    int x = (int) (Math.random() * (6 - 1)) + 1;
-    System.out.println("E' uscito il numero: " + x);
-    return x;
-  }
+  
   public static void movimento(char direzione) {
     switch (direzione) {
       case 'w':
@@ -43,17 +39,30 @@ public class Main {
       inserimento = inserimento.toLowerCase(Locale.ROOT);
       carattere = inserimento.charAt(0);
     } while (carattere != 'w' && carattere != 'a' && carattere != 's' && carattere != 'd');
+    sc.close();
     return carattere;
   }
 
+  public static boolean menu() {
+    //placeholder
+    return true;
+  }
 
+  public static void disegna_labirinto(int[][]labirinto,Punto posizione) {
 
+  }
 
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    Random randomNumbers = new Random();
-    int x = 0;
-    dado();
+  public static boolean valuta_conseguenze(int[][] labirinto,Personaggio personaggio){
+    //placeholder
+    return true;
+  }
+
+  public static boolean controlla_direzione(int[][] labirinto,Punto posizione,char direzione){
+    //placeholder
+    return true;
+  }
+
+  public static void genera_labirinto() {
     Punto punto_corrente = Tools.scelta_bordo_a_caso(labirinto);
     Punto arrivo = Tools.from_array_to_point(Tools.scelta_arrivo(labirinto));
     Tools.inserisciVal(labirinto,1,punto_corrente);
@@ -79,5 +88,39 @@ public class Main {
       distanza_da_soddisfare--;
     }
     Tools.stampa(labirinto);
+  }
+
+
+
+
+  public static void main(String[] args) {
+    int dado;
+    boolean continua = true;
+    boolean controllo = true;
+    char direzione;
+
+    do {
+      continua=menu();
+      if (continua) {
+       personaggio.scelta_personaggio();
+       genera_labirinto();
+       do {
+        dado=personaggio.dado();
+        disegna_labirinto(labirinto,personaggio.posizione);
+        for(int x=0;x<dado;x++){
+          do {
+            direzione=direzione();
+          } while (!controlla_direzione(labirinto,personaggio.posizione,direzione));
+          movimento(direzione);
+          controllo=valuta_conseguenze(labirinto,personaggio);
+          disegna_labirinto(labirinto,personaggio.posizione);
+          if (controllo) {
+            break;
+          }
+        }
+       } while (controllo);
+
+      }
+    } while (continua);
   }
 }

@@ -3,23 +3,17 @@ public class Tools {
     return Math.abs(puntoA.x - puntoB.x) + Math.abs(puntoA.y - puntoB.y);
   }
 
-
-
-
   public static Punto from_array_to_point (int[] posizione){
     return new Punto(posizione[0],posizione[1] );
   }
   // ritorna la distanza dal muro piu vicino
   public static int distanza_da_muro (Punto punto,int[][] labirinto){
-
-
     int distanza_da_x;
     if (punto.x<labirinto.length-punto.x){
       distanza_da_x=punto.x;
     }else {
       distanza_da_x=labirinto.length-punto.x;
     }
-
 
     int distanza_da_y;
     if (punto.y<labirinto[0].length-punto.y){
@@ -38,9 +32,6 @@ public class Tools {
     labirinto[dove.y][dove.x]=daInserire;
     return labirinto;
   }
-
-
-
 
   public static void stampa(int[][] labirinto) {
     System.out.print(" -".repeat(labirinto[0].length * 2) + "\n");
@@ -67,13 +58,6 @@ public class Tools {
     }
   }
 
-
-
-
-
-
-
-
   public static Punto scelta_bordo_a_caso(int[][] labirinto) {
     Punto punto = new Punto(0,0);
     int altezza = labirinto.length;
@@ -82,27 +66,12 @@ public class Tools {
     if (random == 0) {
       punto.x = ((int) (Math.random() * 2)) * (larghezza - 1);
       punto.y = (int) (Math.random() * altezza);
-
-
-
-
-
-
-
-
     } else {
       punto.y = ((int) (Math.random() * 2)) * (altezza - 1);
       punto.x = (int) (Math.random() * larghezza);
     }
     return punto;
   }
-
-
-
-
-
-
-
 
   public static int[] scelta_arrivo(int[][] labirinto) {
     int[] punto = new int[2];
