@@ -1,6 +1,5 @@
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.Random;
 
 public class Main {
   // int[.] = y int[][.] = x
@@ -48,36 +47,36 @@ public class Main {
     return true;
   }
 
-  public static void disegna_labirinto(int[][]labirinto,Punto posizione) {
+  public static void disegnaLabirinto(int[][]labirinto,Punto posizione) {
 
   }
 
-  public static boolean valuta_conseguenze(int[][] labirinto,Personaggio personaggio){
+  public static boolean valutaConseguenze(int[][] labirinto,Personaggio personaggio){
     //placeholder
     return true;
   }
 
-  public static boolean controlla_direzione(int[][] labirinto,Punto posizione,char direzione){
+  public static boolean controllaDirezione(int[][] labirinto,Punto posizione,char direzione){
     //placeholder
     return true;
   }
 
-  public static void genera_labirinto() {
+  public static void generaLabirinto() {
     Punto punto_corrente = Tools.scelta_bordo_a_caso(labirinto);
     Punto arrivo = Tools.from_array_to_point(Tools.scelta_arrivo(labirinto));
     Tools.inserisciVal(labirinto,1,punto_corrente);
     Tools.inserisciVal(labirinto,3,arrivo);
     int distanza_da_soddisfare = labirinto.length*4;
-    Punto[] punti=Tools.trova_e_ordina_punti_piu_lontani(punto_corrente,arrivo);
+    Punto[] punti=Tools.trovaOrdinaPuntiPiuLontani(punto_corrente,arrivo);
     Tools.inserisciVal(labirinto,2,punti[0]);
     punto_corrente=punti[0];
 
 
     while (distanza_da_soddisfare>0){
-      if (Tools.distanza_tra_punti(punto_corrente,arrivo)<=1){
+      if (Tools.distanzaTraPunti(punto_corrente,arrivo)<=1){
         break;
       }
-      punti=Tools.trova_e_ordina_punti_piu_lontani(punto_corrente,arrivo);
+      punti=Tools.trovaOrdinaPuntiPiuLontani(punto_corrente,arrivo);
       
       Punto punto_lavorato = punti[0];
       if (punto_lavorato==arrivo){
@@ -102,18 +101,18 @@ public class Main {
     do {
       continua=menu();
       if (continua) {
-       personaggio.scelta_personaggio();
-       genera_labirinto();
+       personaggio.sceltaPersonaggio();
+       generaLabirinto();
        do {
         dado=personaggio.dado();
-        disegna_labirinto(labirinto,personaggio.posizione);
+        disegnaLabirinto(labirinto,personaggio.posizione);
         for(int x=0;x<dado;x++){
           do {
             direzione=direzione();
-          } while (!controlla_direzione(labirinto,personaggio.posizione,direzione));
+          } while (!controllaDirezione(labirinto,personaggio.posizione,direzione));
           movimento(direzione);
-          controllo=valuta_conseguenze(labirinto,personaggio);
-          disegna_labirinto(labirinto,personaggio.posizione);
+          controllo=valutaConseguenze(labirinto,personaggio);
+          disegnaLabirinto(labirinto,personaggio.posizione);
           if (controllo) {
             break;
           }

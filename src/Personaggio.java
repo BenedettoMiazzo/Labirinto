@@ -7,7 +7,7 @@ public class Personaggio {
     System.out.println("E' uscito il numero: " + x);
     return x;
   }
-  public void scelta_personaggio (){
-    
+  public void sceltaPersonaggio (){
+
   }
 }

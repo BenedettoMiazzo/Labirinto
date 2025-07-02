@@ -1,5 +1,5 @@
 public class Tools {
-  public static int distanza_tra_punti(Punto puntoA,Punto puntoB) {
+  public static int distanzaTraPunti(Punto puntoA,Punto puntoB) {
     return Math.abs(puntoA.x - puntoB.x) + Math.abs(puntoA.y - puntoB.y);
   }
 
@@ -83,7 +83,7 @@ public class Tools {
   }
   //non chiamare danto un muro come uno dei 2 punti
   //guardare appunti_x_notazione
-  public static Punto[] trova_e_ordina_punti_piu_lontani(Punto punto,Punto arrivo){
+  public static Punto[] trovaOrdinaPuntiPiuLontani(Punto punto,Punto arrivo){
     Punto punto00 =new Punto(punto.x-1,punto.y-1);
     Punto punto10 =new Punto(punto.x-1,punto.y);
     Punto punto20 =new Punto((punto.x)-1,(punto.y)+1);
@@ -99,7 +99,7 @@ public class Tools {
       passacarte = array[x];
       indice = x;
       for (int y = x - 1; y >= 0; y--) {
-        if (distanza_tra_punti(passacarte, arrivo) < distanza_tra_punti(array[y], arrivo)) {
+        if (distanzaTraPunti(passacarte, arrivo) < distanzaTraPunti(array[y], arrivo)) {
           array[y + 1] = array[y];
           indice = y;
         } else {
