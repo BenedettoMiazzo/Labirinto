@@ -1,6 +1,7 @@
 public class Personaggio {
   public Punto posizione =new Punto(0,0);
   public int vita=100;
+  public Sprite rappresentazione = new Sprite('.', '.', '.', '.');
   public int numero_massimo = 6;
   public int dado() {
     int x = (int) (Math.random() * (numero_massimo - 1)) + 1;

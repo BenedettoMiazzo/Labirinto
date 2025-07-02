@@ -3,7 +3,7 @@ public class Tools {
     return Math.abs(puntoA.x - puntoB.x) + Math.abs(puntoA.y - puntoB.y);
   }
 
-  public static Punto from_array_to_point (int[] posizione){
+  public static Punto daArrayApunto (int[] posizione){
     return new Punto(posizione[0],posizione[1] );
   }
   // ritorna la distanza dal muro piu vicino
@@ -58,7 +58,7 @@ public class Tools {
     }
   }
 
-  public static Punto scelta_bordo_a_caso(int[][] labirinto) {
+  public static Punto sceltaBordoAcaso(int[][] labirinto) {
     Punto punto = new Punto(0,0);
     int altezza = labirinto.length;
     int larghezza = labirinto[0].length;

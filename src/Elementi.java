@@ -4,4 +4,7 @@ public class Elementi {
     elementi[indice].conseguenza(labirinto, personaggio);
     System.out.println(elementi[indice].MessaggioOutPut());
   }
+  public static Sprite rappresentazione(int indice){
+    return elementi[indice].Rappresentazione();
+  }
 }

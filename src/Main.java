@@ -62,8 +62,8 @@ public class Main {
   }
 
   public static void generaLabirinto() {
-    Punto punto_corrente = Tools.scelta_bordo_a_caso(labirinto);
-    Punto arrivo = Tools.from_array_to_point(Tools.scelta_arrivo(labirinto));
+    Punto punto_corrente = Tools.sceltaBordoAcaso(labirinto);
+    Punto arrivo = Tools.daArrayApunto(Tools.scelta_arrivo(labirinto));
     Tools.inserisciVal(labirinto,1,punto_corrente);
     Tools.inserisciVal(labirinto,3,arrivo);
     int distanza_da_soddisfare = labirinto.length*4;

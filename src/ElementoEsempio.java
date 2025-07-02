@@ -7,6 +7,9 @@ public class ElementoEsempio extends ElementoBase {
   public String MessaggioOutPut(){
     return "Sei finito su delle Spine e hai persto 3 punti vita";
   }
-
-  
+  @Override
+  public Sprite Rappresentazione(){
+    Sprite rappresentazione = new Sprite(':',':',':',':');
+    return rappresentazione;
+  }
 }
